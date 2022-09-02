@@ -8,12 +8,7 @@ import { ReactComponent as ClothLogo } from "../../assets/crown.svg";
 import { UserContext } from "../../contexts/user.context";
 
 const Naviagtion = () => {
-  const { currentUser, setCurrentUser } = useContext(UserContext);
-
-  const signOutHandler = async () => {
-    await signOutUser();
-    setCurrentUser(null);
-  };
+  const { currentUser } = useContext(UserContext);
 
   return (
     <Fragment>
@@ -26,7 +21,7 @@ const Naviagtion = () => {
             SHOP
           </Link>
           {currentUser ? (
-            <span className="nav-link" onClick={signOutHandler}>
+            <span className="nav-link" onClick={signOutUser}>
               SIGN OUT
             </span>
           ) : (
